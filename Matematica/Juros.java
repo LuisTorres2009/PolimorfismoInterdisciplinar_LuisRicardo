@@ -25,17 +25,6 @@ public abstract class Juros {
         return tempo;
     }
 
-    public void setDinheiro(double dinheiro) {
-        this.dinheiro = dinheiro;
-    }
-
-    public void setTaxa(double taxa) {
-        this.taxa = taxa;
-    }
-
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
-    }
     
     // Métodos abstratos para a execução das ações necessárias
     public abstract double calcularJuros();

@@ -87,7 +87,7 @@ public class Matematica {
             }
 
             // Exibição do resultado do cálculo
-            if (juros != null && juros.verificar()) {
+            if (juros != null && juros.verificar() && op > 0) {
                 System.out.println("\n----------------- Resultado -----------------");
                 juros.exibirDetalhes();
             }
