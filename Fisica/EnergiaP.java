@@ -1,16 +1,20 @@
-public class EnergiaP extends Energia{
+// Classe que representa o cálculo da energia potencial (mgh)
+public class EnergiaP extends Energia {
 
-    public EnergiaP (double m, double g, double h){
+    // Construtor que recebe massa e altura
+    public EnergiaP(double m, double g, double h) {
         this.m = m;
-        this.g = 9.8;
+        this.g = 9.8; // gravidade fixa
         this.h = h;
     }
 
+    // Implementação do cálculo da energia potencial
     @Override
-    public double calcularEnergia(){
+    public double calcularEnergia() {
         return m * g * h;
-    };
+    }
 
+    // Exibição dos resultados
     @Override
     public void exibirResultados() {
         System.out.println("Massa (KG): " + String.format("%.2f", m));
