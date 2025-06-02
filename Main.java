@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcao;
+        int op;
 
         do {
           System.out.println("\n --------------------------------");
@@ -14,10 +14,10 @@ public class Main {
             System.out.println("3 - Sistema de Geografia");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
-            opcao = sc.nextInt();
+            op = sc.nextInt();
             sc.nextLine();
 
-            switch (opcao) {
+            switch (op) {
                 case 1:
                     Matematica.main(null);
                     break;
@@ -33,7 +33,7 @@ public class Main {
                 default:
                     System.out.println("Opção inválida! Tente uma opção válida.");
             }
-        } while (opcao != 0);
+        } while (op != 0);
 
         sc.close();
     }
