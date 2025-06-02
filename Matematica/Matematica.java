@@ -26,16 +26,9 @@ public class Matematica {
             switch (op) {
                 case 1:
                     // Coleta de dados 
-                    System.out.println("Digite o capital (R$): ");
-                    double capitalSimples = sc.nextDouble();
-
-                    System.out.println("Digite a taxa de juros (%): ");
-                    double taxaSimples = sc.nextDouble();
-
-                    System.out.println("Digite o tempo (meses): ");
-                    int tempoSimples = sc.nextInt();
-                    sc.nextLine();
-
+                    double capitalSimples = lerDouble(sc, "Digite o capital (R$): ");
+                    double taxaSimples = lerDouble(sc,"Digite a taxa de juros (%): "); 
+                    int tempoSimples = lerInt(sc, "Digite o tempo (meses): ");
                     juros = new JurosSimples(capitalSimples, taxaSimples, tempoSimples);
                     
                     // Verificação e armazenamento no histórico
@@ -48,16 +41,9 @@ public class Matematica {
 
                 case 2:
                     // Coleta de dados
-                    System.out.println("Digite o capital (R$): ");
-                    double capitalComposto = sc.nextDouble();
-
-                    System.out.println("Digite a taxa de juros (%): ");
-                    double taxaComposta = sc.nextDouble();
-
-                    System.out.println("Digite o tempo (meses): ");
-                    int tempoComposto = sc.nextInt();
-                    sc.nextLine();
-
+                    double capitalComposto = lerDouble(sc, "Digite o capital (R$): ");
+                    double taxaComposta = lerDouble(sc,"Digite a taxa de juros (%): ");
+                    int tempoComposto = lerInt(sc, "Digite o tempo (meses): ");
                     juros = new JurosCompostos(capitalComposto, taxaComposta, tempoComposto);
                     
                     // Verificação e armazenamento no histórico
@@ -70,17 +56,10 @@ public class Matematica {
 
                 case 3:
                     // Coleta de dados 
-                    System.out.println("Digite o capital (R$): ");
-                    double capitalCarencia = sc.nextDouble();
-
-                    System.out.println("Digite a taxa de juros (%): ");
-                    double taxaCarencia = sc.nextDouble();
-
-                    System.out.println("Digite o tempo (meses): ");
-                    int tempoCarencia = sc.nextInt();
-
-                    System.out.println("Digite o período de carência (meses): ");
-                    int carencia = sc.nextInt();
+                    double capitalCarencia = lerDouble(sc, "Digite o capital (R$): ");
+                    double taxaCarencia = lerDouble(sc, "Digite a taxa de juros (%): ");
+                    int tempoCarencia = lerInt(sc, "Digite o tempo (meses): ");
+                    int carencia = lerInt(sc, "Digite o período de carência (meses): ");
                     sc.nextLine();
 
                     juros = new JurosCarencia(capitalCarencia, taxaCarencia, tempoCarencia, carencia);
@@ -117,22 +96,36 @@ public class Matematica {
     }
 
     // Função auxiliar para leitura segura de um número inteiro
-    public static int lerInt(Scanner scanner, String mensagem) {
+    public static int lerInt(Scanner sc, String mensagem) {
         int valor = 0;
         boolean valido = false;
 
         // Laço para garantir que o usuário digite um número inteiro válido
         do {
             System.out.println(mensagem);
-            if (scanner.hasNextInt()) {
-                valor = scanner.nextInt();
+            if (sc.hasNextInt()) {
+                valor = sc.nextInt();
                 valido = true;
             } else {
                 System.out.println("Entrada inválida! Digite um número:");
-                scanner.next(); // Limpa entrada inválida
+                sc.next(); // Limpa entrada inválida
             }
         } while (!valido);
-
+        return valor;
+    }
+    public static double lerDouble(Scanner sc, String mensagem) {
+        double valor = 0;
+        boolean valido = false;
+        do {
+            System.out.println(mensagem);
+            if (sc.hasNextDouble()) {
+                valor = sc.nextDouble();
+                valido = true;
+            } else {
+                System.out.println("Entrada inválida! Digite um número: ");
+                sc.next();
+            }
+        } while (!valido);
         return valor;
     }
 }

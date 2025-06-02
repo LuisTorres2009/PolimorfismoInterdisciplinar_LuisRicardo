@@ -1,10 +1,10 @@
 // Classe abstrata de Juros.
 // Serve como base para diferentes tipos de juros (simples, compostos, etc.).
 public abstract class Juros {
-    // Atributos protegidos
-    protected double dinheiro;
-    protected double taxa;
-    protected int tempo;
+    // Atributos protegidos 
+    private double dinheiro;
+    private double taxa;
+    private int tempo;
 
     // Construtor que inicializa os atributos do cálculo de juros.
     public Juros(double dinheiro, double taxa, int tempo) {
@@ -13,6 +13,30 @@ public abstract class Juros {
         this.tempo = tempo;
     }
 
+    public double getDinheiro() {
+        return dinheiro;
+    }
+
+    public double getTaxa() {
+        return taxa;
+    }
+
+    public int getTempo() {
+        return tempo;
+    }
+
+    public void setDinheiro(double dinheiro) {
+        this.dinheiro = dinheiro;
+    }
+
+    public void setTaxa(double taxa) {
+        this.taxa = taxa;
+    }
+
+    public void setTempo(int tempo) {
+        this.tempo = tempo;
+    }
+    
     // Métodos abstratos para a execução das ações necessárias
     public abstract double calcularJuros();
     public abstract void exibirDetalhes();
@@ -24,3 +48,4 @@ public abstract class Juros {
         }
     }
 }
+
