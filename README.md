@@ -1,13 +1,13 @@
 ***Sobre o Projeto:***
 - Este projeto é um sistema educacional desenvolvido em Java, com o objetivo de facilitar o aprendizado de três disciplinas: Matemática, Física e Geografia.
 
-Cada matéria aborda um tema específico:
+    Cada matéria aborda um tema específico:
 
-Matemática: Cálculo de juros simples e juros compostos.
+    Matemática: Cálculo de juros simples e juros compostos.
 
-Física: Cálculo de três tipos de energia — Potencial, Cinética e Mecânica.
+    Física: Cálculo de três tipos de energia — Potencial, Cinética e Mecânica.
 
-Geografia: Aprendizado sobre os diferentes tipos de rochas, com a possibilidade de registrar novas informações no sistema.
+    Geografia: Aprendizado sobre os diferentes tipos de rochas, com a possibilidade de registrar novas informações no sistema.
 
 ***Funcionalidades***
 - Cálculo de juros simples e compostos.
