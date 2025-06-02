@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int op;
+        int opcao;
 
         do {
           System.out.println("\n --------------------------------");
@@ -13,11 +13,9 @@ public class Main {
             System.out.println("2 - Sistema de Física");
             System.out.println("3 - Sistema de Geografia");
             System.out.println("0 - Sair");
-            System.out.print("Escolha uma opção: ");
-            op = sc.nextInt();
-            sc.nextLine();
+            opcao = lerInt(sc, "Escolha uma opção: ");
 
-            switch (op) {
+            switch (opcao) {
                 case 1:
                     Matematica.main(null);
                     break;
@@ -28,13 +26,29 @@ public class Main {
                     Geografia.main(null);
                     break;
                 case 0:
-                    System.out.println("Encerrando o programa");
+                    System.out.println("Encerrando o programa...");
                     break;
                 default:
                     System.out.println("Opção inválida! Tente uma opção válida.");
             }
-        } while (op != 0);
+        } while (opcao != 0);
 
         sc.close();
     }
+    public static int lerInt(Scanner scanner, String mensagem) {
+        int valor = 0;
+        boolean valido = false;
+        do {
+            System.out.println(mensagem);
+            if (scanner.hasNextInt()) {
+                valor = scanner.nextInt();
+                valido = true;
+            } else {
+                System.out.println("Entrada inválida! Digite um número:");
+                scanner.next();
+            }
+        } while (!valido);
+        return valor;
+    }
+    
 }
