@@ -1,13 +1,14 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+// Classe principal
 public class Matematica {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Juros> historico = new ArrayList<>();
-        Juros juros = null;
+        ArrayList<Juros> historico = new ArrayList<>(); // Array para armazenar os cálculos
+        Juros juros = null; // tipo atual de juros
         int op;
-
+        // Estrutura de repetição
         do {
             System.out.println("\n ----------------------------------------------");
             System.out.println("|          Sistema de Cálculo de Juros         |");
@@ -15,11 +16,10 @@ public class Matematica {
             System.out.println("1 - Juros Simples");
             System.out.println("2 - Juros Compostos");
             System.out.println("3 - Juros Simples com Carência");
-            System.out.println("4 - Mostrar Histórico");
             System.out.println("0 - Sair");
             System.out.println("Escolha uma opção: ");
             op = sc.nextInt();
-
+            // Estrutura de decisão
             switch (op) {
                 case 1:
                     System.out.println("Digite o capital (R$): ");
@@ -33,7 +33,12 @@ public class Matematica {
                     sc.nextLine();
 
                     juros = new JurosSimples(capitalSimples, taxaSimples, tempoSimples);
-                    historico.add(juros);
+                    // Verificação de dados para salvar no histórico
+                    if (juros.verificar() == true) {
+                        historico.add(juros);
+                    } else {
+                        System.out.println("Valores inválidos para o cálculo de juros.");
+                    }       
                     break;
 
                 case 2:
@@ -48,7 +53,11 @@ public class Matematica {
                     sc.nextLine();
 
                     juros = new JurosCompostos(capitalComposto, taxaComposta, tempoComposto);
-                    historico.add(juros);
+                    if (juros.verificar() == true) {
+                        historico.add(juros);
+                    } else {
+                        System.out.println("Valores inválidos para o cálculo de juros.");
+                    }
                     break;
 
                 case 3:
@@ -66,29 +75,26 @@ public class Matematica {
                     sc.nextLine();
 
                     juros = new JurosCarencia(capitalCarencia, taxaCarencia, tempoCarencia, carencia);
-                    historico.add(juros);
-                    break;
-
-                case 4:
-                    System.out.println("\n----------------- Histórico -----------------");
-                    if (historico.isEmpty()) {
-                        System.out.println("Nenhum cálculo realizado ainda.");
+                    if (juros.verificar() == true) {
+                        historico.add(juros);
                     } else {
+                        System.out.println("Valores inválidos para o cálculo de juros.");
+                    }
+                    break;
+                // Exibição do histórico de cálculos
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    System.out.println("\n------------------ Histórico de Cálculos ------------------");
                         for (Juros j : historico) {
                             j.exibirDetalhes();
                         }
-                    }
-                    break;
-
-                case 0:
-                    System.out.println("Encerrando o programa...");
                     break;
 
                 default:
                     System.out.println("Opção inválida.");
             }
-
-            if (juros != null) {
+            // exibe o resultado do cálculo
+            if (juros != null && juros.verificar() == true) {
                 System.out.println("\n----------------- Resultado -----------------");
                 juros.exibirDetalhes();
                 juros = null;
@@ -96,6 +102,5 @@ public class Matematica {
 
         } while (op != 0);
 
-        sc.close();
     }
 }

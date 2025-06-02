@@ -1,13 +1,16 @@
+// Extensão da classe abstrata
 public class JurosCompostos extends Juros {
+    // Construtor que inicializa os atributos herdados da superclasse
     public JurosCompostos(double dinheiro, double taxa, int tempo) {
         super(dinheiro, taxa, tempo);
     }
 
+    // Método abstrato para calcular os juros compostos
     @Override
     public double calcularJuros() {
         return dinheiro * Math.pow(1 + taxa / 100, tempo) - dinheiro;
     }
-
+    //método abstrato para exibir os detalhes do cálculo
     @Override
     public void exibirDetalhes() {
         System.out.println("Juros Compostos");

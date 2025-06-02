@@ -80,6 +80,6 @@ public class Fisica {
                 energia = null;
             }
         }while(op != 0);
-        scanner.close();
+
     }
 }

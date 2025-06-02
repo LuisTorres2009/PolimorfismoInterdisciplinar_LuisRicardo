@@ -1,17 +1,23 @@
+// Extensão da classe abstrata
 public class JurosCarencia extends Juros {
+
+    // Número de meses em que os juros não serão aplicados
     private int carencia;
 
+    // Construtor que inicializa os atributos herdados e o período de carência
     public JurosCarencia(double dinheiro, double taxa, int tempo, int carencia) {
         super(dinheiro, taxa, tempo);
         this.carencia = carencia;
     }
 
+    // Método abstrato para calcular os juros
     @Override
     public double calcularJuros() {
         if (tempo <= carencia) return 0;
         return dinheiro * taxa / 100 * (tempo - carencia);
     }
 
+    // Método abstrato para exibir os detalhes do cálculo
     @Override
     public void exibirDetalhes() {
         System.out.println("Juros Simples com carência");

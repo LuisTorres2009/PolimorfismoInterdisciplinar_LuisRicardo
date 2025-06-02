@@ -58,6 +58,5 @@ public class Geografia {
 
         } while (!opcao.equals("0"));
         
-        sc.close();
     }
 }

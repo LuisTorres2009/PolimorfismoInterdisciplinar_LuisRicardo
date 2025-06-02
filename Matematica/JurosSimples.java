@@ -1,14 +1,15 @@
+// Extensão da classe abstrata
 public class JurosSimples extends Juros {
-    
+    // Construtor que inicializa os atributos herdados da superclasse
     public JurosSimples(double dinheiro, double taxa, int tempo) {
         super(dinheiro, taxa, tempo);
     }
-
+    // Método abstrato para calcular os juros simples
     @Override
     public double calcularJuros() {
         return dinheiro * taxa / 100 * tempo;
     }
-
+    //método abstrato para exibir os detalhes do cálculo
     @Override
     public void exibirDetalhes() {
         System.out.println("Juros Simples");
